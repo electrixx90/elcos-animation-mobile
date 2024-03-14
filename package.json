@@ -39,27 +39,13 @@
     "ios",
     "android"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+http://....git"
-  },
-  "author": "Mirco Chiesa <info@mchiesa.com> (http://...)",
+  "author": "Mirco Chiesa <info@mchiesa.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "http://.../issues"
-  },
-  "homepage": "http://...#readme",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "devDependencies": {
-    "@commitlint/config-conventional": "^17.0.2",
-    "@evilmartians/lefthook": "^1.5.0",
     "@react-native/eslint-config": "^0.73.1",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^29.5.5",
     "@types/react": "^18.2.44",
-    "commitlint": "^17.0.2",
     "del-cli": "^5.1.0",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
@@ -89,28 +75,6 @@
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
     ]
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
-    },
-    "npm": {
-      "publish": true
-    },
-    "github": {
-      "release": true
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "angular"
-      }
-    }
   },
   "eslintConfig": {
     "root": true,
@@ -155,5 +119,11 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "@svgator/react-native": "^2.0.1",
+    "lodash": "^4.17.21",
+    "react-native-svg": "^15.1.0",
+    "react-native-webview": "^13.8.1"
   }
 }

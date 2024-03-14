@@ -1,31 +1,43 @@
-# elcos-animation-mobile
+# elcos-animation
+Animazione Elcos per React Native
 
-Animazione Elcos per mobile
-
-## Installation
-
-```sh
-npm install elcos-animation-mobile
+Installazione
+------
+Eseguire il seguente comando:
+```bash
+npm i https://github.com/electrixx90/elcos-animation-mobile.git
 ```
 
-## Usage
+Utilizzo
+-------
+```javascript
+import ElcosAnimation from "elcos-animation/src/lib/ElcosAnimation";
 
-```js
-import { multiply } from 'elcos-animation-mobile';
-
-// ...
-
-const result = await multiply(3, 7);
+function QualsiasiComponente() {
+    return (
+        <>
+            <ElcosAnimation events={[]} sinotticoName={"cea_smart"} />
+        </>
+    )
+}
 ```
 
-## Contributing
+La proprietà `events` conterrà un array di eventi, ciascuno costituito da una doppietta `[variabile, valore]`, di seguito l'esempio:
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+```javascript
+[
+    ["SinotticoMode", "MODE_MAN"],
+    ["SinotticoMains", "MAINS_ANOM"],
+    ["SinotticoEP", "EP_ON"]
+]
+```
 
-## License
+<b>Sarà premura dell'implementatore garantire che nell'array non ci siano valori doppi di una medesima variabile, come ad esempio:</b>
+```javascript
+[
+    ["SinotticoMode", "MODE_MAN"],
+    ["SinotticoMode", "MODE_AUT"],
+]
+```
 
-MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+La proprietà `sinotticoName` conterrà una stringa per richiamare la tipologia di centralina ovvero `cea_smart` oppure `c_smart`.
