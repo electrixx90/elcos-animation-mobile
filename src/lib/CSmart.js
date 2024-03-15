@@ -1,5 +1,4 @@
 import React, {forwardRef} from 'react';
-import {View} from "react-native";
 import SinotticoBattA from "./partials/c-smart/SinotticoBattA";
 import SinotticoBattB from "./partials/c-smart/SinotticoBattB";
 import SinotticoCBA from "./partials/c-smart/SinotticoCBA";
@@ -37,23 +36,21 @@ const CSmart = forwardRef(function CeaSmart(props, ref) {
 
   return (
     <>
-      <>
-        <SinotticoBattA ref={refBattA} />
-        <SinotticoBattB ref={refBattB} />
-        <SinotticoCBA ref={refCba} />
-        <SinotticoCBB ref={refCbb} />
-        <SinotticoEngine ref={refEngine} />
-        <SinotticoEngineProt ref={refEngineProt} />
-        <SinotticoReteA ref={refReteA} />
-        <SinotticoReteB ref={refReteB} />
-        <SinotticoTraliccio ref={refTraliccio} />
-        <SinotticoPress ref={refPress} />
-        <SinotticoReqT ref={refReqT} />
-        <SinotticoReq ref={refReq} />
-        <SinotticoAlarm ref={refAlarm} />
-        <SinotticoMode ref={refMode} />
-        <SinotticoStatus ref={refStatus} />
-      </>
+      <SinotticoBattA ref={refBattA} />
+      <SinotticoBattB ref={refBattB} />
+      <SinotticoCBA ref={refCba} />
+      <SinotticoCBB ref={refCbb} />
+      <SinotticoEngine ref={refEngine} />
+      <SinotticoEngineProt ref={refEngineProt} />
+      <SinotticoReteA ref={refReteA} />
+      <SinotticoReteB ref={refReteB} />
+      <SinotticoTraliccio ref={refTraliccio} />
+      <SinotticoPress ref={refPress} />
+      <SinotticoReqT ref={refReqT} />
+      <SinotticoReq ref={refReq} />
+      <SinotticoAlarm ref={refAlarm} />
+      <SinotticoMode ref={refMode} />
+      <SinotticoStatus ref={refStatus} />
     </>
   )
 })

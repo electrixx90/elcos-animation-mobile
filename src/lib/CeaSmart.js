@@ -8,7 +8,6 @@ import SinotticoPress from "./partials/cea-smart/SinotticoPress";
 import SinotticoReq from "./partials/cea-smart/SinotticoReq";
 import SinotticoReqT from "./partials/cea-smart/SinotticoReqT";
 import SinotticoStatus from "./partials/cea-smart/SinotticoStatus";
-import {View} from "react-native";
 import {StyleSheet} from "react-native";
 
 
@@ -26,7 +25,7 @@ const CeaSmart = forwardRef(function CeaSmart(props, ref) {
   } = ref;
 
   return (
-    <View>
+    <>
       <SinotticoAlarm ref={refAlarm} />
       <SinotticoEP ref={refEp} />
       <SinotticoMains ref={refMains} />
@@ -36,24 +35,9 @@ const CeaSmart = forwardRef(function CeaSmart(props, ref) {
       <SinotticoReq ref={refReq} />
       <SinotticoReqT ref={refReqT} />
       <SinotticoStatus ref={refStatus} />
-    </View>
+    </>
   )
 })
-
-const styles = StyleSheet.create({
-  container: {
-    //flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 40
-  },
-  picker: {
-    width: 160
-  },
-  pickerItem: {
-    fontSize: 10
-  }
-});
 
 export default CeaSmart;
 
