@@ -11,7 +11,7 @@ npm i https://github.com/electrixx90/elcos-animation-mobile.git
 Utilizzo
 -------
 ```javascript
-import ElcosAnimation from "elcos-animation/src/lib/ElcosAnimation";
+import ElcosAnimation from "elcos-animation-mobile/src/lib/ElcosAnimation";
 
 function QualsiasiComponente() {
     return (
