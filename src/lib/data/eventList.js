@@ -280,12 +280,12 @@ export const eventList = {
       duration: null,
       loop: false
     }],
-    "MODE_PRESS": [{
+    "BATT_PRESS": [{
       fn: (p) => p.current.injectJavaScript(`document.querySelector('svg').svgatorPlayer['seekTo'](1000).pause(); true;`),
       duration: null,
       loop: false
     }],
-    "MODE_ANOM": [{
+    "BATT_ANOM": [{
       fn: (p) => p.current.injectJavaScript(`document.querySelector('svg').svgatorPlayer['seekTo'](2000).pause(); true;`),
       duration: null,
       loop: false
@@ -297,12 +297,12 @@ export const eventList = {
       duration: null,
       loop: false
     }],
-    "MODE_PRESS": [{
+    "BATT_PRESS": [{
       fn: (p) => p.current.injectJavaScript(`document.querySelector('svg').svgatorPlayer['seekTo'](1000).pause(); true;`),
       duration: null,
       loop: false
     }],
-    "MODE_ANOM": [{
+    "BATT_ANOM": [{
       fn: (p) => p.current.injectJavaScript(`document.querySelector('svg').svgatorPlayer['seekTo'](2000).pause(); true;`),
       duration: null,
       loop: false
@@ -316,7 +316,7 @@ export const eventList = {
     }],
     "ENGINE_OFF": [{
       fn: (p) => {
-        p.seekTo(0).play();
+        p.current.injectJavaScript(`document.querySelector('svg').svgatorPlayer['seekTo'](0).play(); true;`);
         return setTimeout(() => p.current.injectJavaScript(`document.querySelector('svg').svgatorPlayer.pause(); true;`), 1000);
       },
       duration: null,

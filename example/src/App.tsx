@@ -224,8 +224,8 @@ export default function App() {
               }} selectedValue={sinotticoBattA}>
                 <Picker.Item label="" value="" style={styles.pickerItem}/>
                 <Picker.Item label="BATT_ABS" value="SinotticoBattA,BATT_ABS" style={styles.pickerItem}/>
-                <Picker.Item label="MODE_PRESS" value="SinotticoBattA,MODE_PRESS" style={styles.pickerItem}/>
-                <Picker.Item label="MODE_ANOM" value="SinotticoBattA,MODE_ANOM" style={styles.pickerItem}/>
+                <Picker.Item label="BATT_PRESS" value="SinotticoBattA,BATT_PRESS" style={styles.pickerItem}/>
+                <Picker.Item label="BATT_ANOM" value="SinotticoBattA,BATT_ANOM" style={styles.pickerItem}/>
               </Picker>
             </View>
 
@@ -237,8 +237,8 @@ export default function App() {
               }} selectedValue={sinotticoBattB}>
                 <Picker.Item label="" value="" style={styles.pickerItem}/>
                 <Picker.Item label="BATT_ABS" value="SinotticoBattB,BATT_ABS" style={styles.pickerItem}/>
-                <Picker.Item label="MODE_PRESS" value="SinotticoBattB,MODE_PRESS" style={styles.pickerItem}/>
-                <Picker.Item label="MODE_ANOM" value="SinotticoBattB,MODE_ANOM" style={styles.pickerItem}/>
+                <Picker.Item label="BATT_PRESS" value="SinotticoBattB,BATT_PRESS" style={styles.pickerItem}/>
+                <Picker.Item label="BATT_ANOM" value="SinotticoBattB,BATT_ANOM" style={styles.pickerItem}/>
               </Picker>
             </View>
 
