@@ -4,7 +4,8 @@ import _ from "lodash";
 import CeaSmart from "./CeaSmart";
 import CSmart from "./CSmart";
 import {eventList} from "./data/eventList";
-import {Text, View, StyleSheet} from "react-native";
+import {Text, View, StyleSheet, BackHandler, Alert} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -126,14 +127,32 @@ export default function ElcosAnimation({
     setIntervals([]);
   }, [sinotticoName]);
 
-  const createInterval = (item, player) => {
-    if (item.loop && player) {
-      return setInterval(() => {
-        item['fn'](player);
-      }, item['duration']);
-    }
+  const navigation = useNavigation();
 
-    return item['fn'](player);
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('beforeRemove', (e) => {
+      // Prevent default behavior of back button press
+      e.preventDefault();
+
+      // Custom logic here, for example, show a confirmation modal
+      // You can also conditionally execute the default behavior based on your logic
+
+      // Perform custom logic or navigate programmatically
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
+  const createInterval = (item, player) => {
+    if(player && player.current) {
+      if (item.loop) {
+        return setInterval(() => {
+          item['fn'](player);
+        }, item['duration']);
+      } else {
+        return item['fn'](player);
+      }
+    }
   }
 
   function processPlayerEvent(player, eventName, intv) {
