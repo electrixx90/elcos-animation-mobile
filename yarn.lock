@@ -7244,7 +7244,6 @@ __metadata:
   resolution: "elcos-animation-mobile@workspace:."
   dependencies:
     "@react-native/eslint-config": ^0.73.1
-    "@react-navigation/native": ^6.1.17
     "@release-it/conventional-changelog": ^5.0.0
     "@svgator/react-native": ^2.0.1
     "@types/jest": ^29.5.5

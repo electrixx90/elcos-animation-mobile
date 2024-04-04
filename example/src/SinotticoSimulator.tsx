@@ -349,7 +349,7 @@ export default function SinotticoSimulator({navigation}) {
       }
 
       <View style={styles.container}>
-        <Animation events={events} sinotticoName={sinotticoName}/>
+        <Animation events={events} sinotticoName={sinotticoName} navigation={navigation} />
       </View>
 
       <View>

@@ -5,7 +5,6 @@ import CeaSmart from "./CeaSmart";
 import CSmart from "./CSmart";
 import {eventList} from "./data/eventList";
 import {Text, View, StyleSheet, BackHandler, Alert} from "react-native";
-import {useNavigation} from "@react-navigation/native";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -19,6 +18,7 @@ function usePrevious(value) {
  *
  * @param events
  * @param sinotticoName
+ * @param navigation
  * @returns {JSX.Element}
  * @export events = [
  *  ["SinotticoMode", "MODE_OFF"], ["SinotticoMotor", "MOTOR_OFF"], ...
@@ -27,10 +27,12 @@ function usePrevious(value) {
  */
 export default function ElcosAnimation({
                                          events = [],
-                                         sinotticoName = 'cea_smart'
+                                         sinotticoName = 'cea_smart',
+                                         navigation
                                        }) {
   const [intervals, setIntervals] = useState([]);
   const prevEvents = usePrevious(events);
+  const [currentEvents, setCurrentEvents] = useState(events);
 
   const refAlarm = useRef(null);
   const refEp = useRef(null);
@@ -127,21 +129,25 @@ export default function ElcosAnimation({
     setIntervals([]);
   }, [sinotticoName]);
 
-  const navigation = useNavigation();
-
   useEffect(() => {
     const unsubscribe = navigation.addListener('beforeRemove', (e) => {
-      // Prevent default behavior of back button press
-      e.preventDefault();
-
-      // Custom logic here, for example, show a confirmation modal
-      // You can also conditionally execute the default behavior based on your logic
-
-      // Perform custom logic or navigate programmatically
+      setCurrentEvents([]);
     });
 
     return unsubscribe;
   }, [navigation]);
+
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      () => {
+        setCurrentEvents([]);
+        return false;
+      }
+    );
+
+    return () => backHandler.remove();
+  }, []);
 
   const createInterval = (item, player) => {
     if(player && player.current) {
@@ -156,10 +162,10 @@ export default function ElcosAnimation({
   }
 
   function processPlayerEvent(player, eventName, intv) {
-    if (player && player.current && events.length > 0) {
-      const flattenedEvents = _.flatten(events);
+    if (player && player.current && currentEvents.length > 0) {
+      const flattenedEvents = _.flatten(currentEvents);
       if (flattenedEvents.includes(eventName)) {
-        const e = _.find(events, e => e[0] === eventName);
+        const e = _.find(currentEvents, e => e[0] === eventName);
         const item = eventList[e[0]][0][e[1]][0];
         const label = `${e[0]}-${e[1]}`;
         const fInt = _.find(intervals, i => i[0] === label);
@@ -171,6 +177,7 @@ export default function ElcosAnimation({
             let eventName = i[0].split('-')[0];
             if (typeof i[1] === 'number' && eventName === e[0]) clearInterval(i[1]);
           });
+
           // [etichetta_evento, identificativo_intervallo]
           intv.push([label, createInterval(item, player)]);
         }
@@ -178,9 +185,12 @@ export default function ElcosAnimation({
     }
   }
 
+  useEffect(() => {
+    setCurrentEvents(events);
+  }, [events]);
 
   useEffect(() => {
-    const evt = events.map(e => e[0]);
+    const evt = currentEvents.map(e => e[0]);
     const pEvt = prevEvents.map(e => e[0]);
 
     const diff = _.difference(pEvt, evt);
@@ -238,7 +248,7 @@ export default function ElcosAnimation({
 
     setIntervals(intv);
 
-  }, [events]);
+  }, [currentEvents]);
 
   switch (sinotticoName) {
     case 'cea_smart':

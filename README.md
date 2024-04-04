@@ -16,7 +16,7 @@ import ElcosAnimation from "elcos-animation-mobile/src/lib/ElcosAnimation";
 function QualsiasiComponente() {
     return (
         <>
-            <ElcosAnimation events={[]} sinotticoName={"cea_smart"} />
+            <ElcosAnimation events={[]} sinotticoName={"cea_smart"} navigation={navigation} />
         </>
     )
 }
@@ -41,3 +41,5 @@ La proprietà `events` conterrà un array di eventi, ciascuno costituito da una 
 ```
 
 La proprietà `sinotticoName` conterrà una stringa per richiamare la tipologia di centralina ovvero `cea_smart` oppure `c_smart`.
+
+Infine la proprietà `navigation` sarà la proprietà `navigation` del componente padre interno a `NavigationContainer`.
