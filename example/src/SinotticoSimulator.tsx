@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Button, ScrollView, StyleSheet, Text, View} from "react-native";
 import Collapsible from "react-native-collapsible";
 import {Picker} from "@react-native-picker/picker";
@@ -7,9 +7,9 @@ import Animation from 'elcos-animation-mobile';
 import _ from 'lodash';
 
 export default function SinotticoSimulator({navigation}) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [events, setEvents] = useState([]);
-  const [waitingEvents, setWaitingEvents] = useState([]);
+  const [waitingEvents, setWaitingEvents] = useState([["SinotticoMode", "MODE_AUT"], ["SinotticoTraliccio", "TRALICCIO_YES"], ["SinotticoReteA", "CBRETE_OK"], ["SinotticoReteB", "CBRETE_OK"], ["SinotticoCBA", "CB_PRESS"], ["SinotticoCBB", "CB_PRESS"], ["SinotticoBattA", "BATT_PRESS"], ["SinotticoBattB", "BATT_ANOM"], ["SinotticoEngine", "ENGINE_OFF"], ["SinotticoEngineProt", "ENGINEPROT_OFF"], ["SinotticoPress", "PRESS_NO"], ["SinotticoAlarm", "ALARM_Y_B"], ["SinotticoStatus", "ANOM_YES"], ["SinotticoReq", "REQ_START"], ["SinotticoReqT", "REQT_PRESS"]]);
   const [sinotticoName, setSinotticoName] = useState("c_smart");
 
   const [sinotticoMode, setSinotticoMode] = useState(null);
@@ -46,9 +46,9 @@ export default function SinotticoSimulator({navigation}) {
   }
 
   useEffect(() => {
-    setEvents([]);
+    //setEvents([]);
 
-    setSinotticoMode(null);
+    /*setSinotticoMode(null);
     setSinotticoMains(null);
     setSinotticoMotor(null);
     setSinotticoEP(null);
@@ -65,7 +65,7 @@ export default function SinotticoSimulator({navigation}) {
     setSinotticoBattA(null);
     setSinotticoBattB(null);
     setSinotticoEngine(null);
-    setSinotticoEngineProt(null);
+    setSinotticoEngineProt(null);*/
   }, [sinotticoName]);
 
   return (
@@ -349,7 +349,7 @@ export default function SinotticoSimulator({navigation}) {
       }
 
       <View style={styles.container}>
-        <Animation events={events} sinotticoName={sinotticoName} navigation={navigation} />
+        <Animation events={waitingEvents} sinotticoName={sinotticoName} navigation={navigation} />
       </View>
 
       <View>

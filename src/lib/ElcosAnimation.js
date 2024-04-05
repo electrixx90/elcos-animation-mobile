@@ -226,28 +226,29 @@ export default function ElcosAnimation({
 
     let intv = [];
 
-    processPlayerEvent(refMode, 'SinotticoMode', intv);
-    processPlayerEvent(refMains, 'SinotticoMains', intv);
-    processPlayerEvent(refMotor, 'SinotticoMotor', intv);
-    processPlayerEvent(refEp, 'SinotticoEP', intv);
-    processPlayerEvent(refPress, 'SinotticoPress', intv);
-    processPlayerEvent(refAlarm, 'SinotticoAlarm', intv);
-    processPlayerEvent(refStatus, 'SinotticoStatus', intv);
-    processPlayerEvent(refReq, 'SinotticoReq', intv);
-    processPlayerEvent(refReqT, 'SinotticoReqT', intv);
+    setTimeout(() => {
+      processPlayerEvent(refMode, 'SinotticoMode', intv);
+      processPlayerEvent(refMains, 'SinotticoMains', intv);
+      processPlayerEvent(refMotor, 'SinotticoMotor', intv);
+      processPlayerEvent(refEp, 'SinotticoEP', intv);
+      processPlayerEvent(refPress, 'SinotticoPress', intv);
+      processPlayerEvent(refAlarm, 'SinotticoAlarm', intv);
+      processPlayerEvent(refStatus, 'SinotticoStatus', intv);
+      processPlayerEvent(refReq, 'SinotticoReq', intv);
+      processPlayerEvent(refReqT, 'SinotticoReqT', intv);
 
-    processPlayerEvent(refTraliccio, 'SinotticoTraliccio', intv);
-    processPlayerEvent(refReteA, 'SinotticoReteA', intv);
-    processPlayerEvent(refReteB, 'SinotticoReteB', intv);
-    processPlayerEvent(refCba, 'SinotticoCBA', intv);
-    processPlayerEvent(refCbb, 'SinotticoCBB', intv);
-    processPlayerEvent(refBattA, 'SinotticoBattA', intv);
-    processPlayerEvent(refBattB, 'SinotticoBattB', intv);
-    processPlayerEvent(refEngine, 'SinotticoEngine', intv);
-    processPlayerEvent(refEngineProt, 'SinotticoEngineProt', intv);
+      processPlayerEvent(refTraliccio, 'SinotticoTraliccio', intv);
+      processPlayerEvent(refReteA, 'SinotticoReteA', intv);
+      processPlayerEvent(refReteB, 'SinotticoReteB', intv);
+      processPlayerEvent(refCba, 'SinotticoCBA', intv);
+      processPlayerEvent(refCbb, 'SinotticoCBB', intv);
+      processPlayerEvent(refBattA, 'SinotticoBattA', intv);
+      processPlayerEvent(refBattB, 'SinotticoBattB', intv);
+      processPlayerEvent(refEngine, 'SinotticoEngine', intv);
+      processPlayerEvent(refEngineProt, 'SinotticoEngineProt', intv);
 
-    setIntervals(intv);
-
+      setIntervals(intv);
+    }, 2500);
   }, [currentEvents]);
 
   switch (sinotticoName) {
