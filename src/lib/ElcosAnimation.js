@@ -248,7 +248,7 @@ export default function ElcosAnimation({
       processPlayerEvent(refEngineProt, 'SinotticoEngineProt', intv);
 
       setIntervals(intv);
-    }, 2500);
+    }, 500);
   }, [currentEvents]);
 
   switch (sinotticoName) {
